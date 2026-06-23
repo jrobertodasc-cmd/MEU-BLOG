@@ -1,0 +1,29 @@
+# backend:
+#   name: git-gateway # Use esta opção se for hospedar na Netlify com Netlify Identity
+#   branch: main
+
+# Como a maioria dos projetos modernos Next.js vão para a Vercel, o backend do GitHub puro costuma ser melhor:
+backend:
+  name: github
+  repo: jrobertodasc-cmd/MEU-BLOG
+  branch: main
+  # base_url: https://sua-url-do-oauth.vercel.app # Necessário para autenticação externa se hospedado na Vercel
+
+media_folder: "public/images/uploads" # Onde as imagens do post serão salvas no repositório
+public_folder: "/images/uploads" # O caminho base onde as imagens serão lidas no site final
+
+site_url: https://seu-dominio.com
+display_url: https://seu-dominio.com
+
+collections:
+  - name: "posts"
+    label: "Reflexões"
+    label_singular: "Reflexão"
+    folder: "posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Resumo", name: "excerpt", widget: "text", required: false }
+      - { label: "Corpo do Texto", name: "body", widget: "markdown" }
