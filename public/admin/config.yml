@@ -7,7 +7,8 @@ backend:
   name: github
   repo: jrobertodasc-cmd/MEU-BLOG
   branch: main
-  # base_url: https://sua-url-do-oauth.vercel.app # Necessário para autenticação externa se hospedado na Vercel
+  base_url: https://reflexoes-lac.vercel.app
+  auth_endpoint: api/auth
 
 media_folder: "public/images/uploads" # Onde as imagens do post serão salvas no repositório
 public_folder: "/images/uploads" # O caminho base onde as imagens serão lidas no site final
