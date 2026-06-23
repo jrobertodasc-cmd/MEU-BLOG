@@ -28,11 +28,12 @@
             label_singular: "Reflexão",
             folder: "posts",
             create: true,
-            format: "yaml-frontmatter",
+            extension: "md",
+            format: "frontmatter",
             slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
             fields: [
               { label: "Título", name: "title", widget: "string" },
-              { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false },
+              { label: "Data", name: "date", widget: "string" },
               { label: "Resumo", name: "excerpt", widget: "text", required: false },
               { label: "Corpo do Texto", name: "body", widget: "markdown" }
             ]
@@ -41,6 +42,6 @@
       };
     </script>
     <!-- Script Principal estável do Decap CMS -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script src="https://unpkg.com/decap-cms@^3.0.12/dist/decap-cms.js"></script>
   </body>
 </html>
