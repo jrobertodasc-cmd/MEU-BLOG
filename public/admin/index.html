@@ -28,13 +28,11 @@
             label_singular: "Reflexão",
             folder: "posts",
             create: true,
-            extension: "md",
-            format: "frontmatter",
             slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
             fields: [
               { label: "Título", name: "title", widget: "string" },
               { label: "Data", name: "date", widget: "string" },
-              { label: "Resumo", name: "excerpt", widget: "text", required: false },
+              { label: "Resumo", name: "excerpt", widget: "string", required: false },
               { label: "Corpo do Texto", name: "body", widget: "markdown" }
             ]
           }
