@@ -13,8 +13,8 @@ backend:
 media_folder: "public/images/uploads" # Onde as imagens do post serão salvas no repositório
 public_folder: "/images/uploads" # O caminho base onde as imagens serão lidas no site final
 
-site_url: https://seu-dominio.com
-display_url: https://seu-dominio.com
+site_url: https://reflexoes-lac.vercel.app
+display_url: https://reflexoes-lac.vercel.app
 
 collections:
   - name: "posts"
@@ -22,9 +22,11 @@ collections:
     label_singular: "Reflexão"
     folder: "posts"
     create: true
+    format: "frontmatter"
+    extension: "md"
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Título", name: "title", widget: "string" }
-      - { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
-      - { label: "Resumo", name: "excerpt", widget: "text", required: false }
+      - { label: "Data", name: "date", widget: "string" }
+      - { label: "Resumo", name: "excerpt", widget: "string" }
       - { label: "Corpo do Texto", name: "body", widget: "markdown" }
