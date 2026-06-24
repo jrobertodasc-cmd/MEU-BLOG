@@ -3,45 +3,46 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Estilos do CMS fixados na versão estável 3.16.0 -->
     <link rel="stylesheet" href="https://unpkg.com/decap-cms@3.16.0/dist/decap-cms.css" />
   </head>
   <body>
-    <!-- Script de Configuração embutido antes do Decap CMS carregar -->
-    <script>
-      window.CMS_CONFIG = {
-        backend: {
-          name: "github",
-          repo: "jrobertodasc-cmd/MEU-BLOG",
-          branch: "main",
-          base_url: "https://reflexoes-lac.vercel.app",
-          auth_endpoint: "api/auth"
-        },
-        media_folder: "public/images/uploads",
-        public_folder: "/images/uploads",
-        site_url: "https://reflexoes-lac.vercel.app",
-        display_url: "https://reflexoes-lac.vercel.app",
-        collections: [
-          {
-            name: "posts",
-            label: "Reflexões",
-            label_singular: "Reflexão",
-            folder: "posts",
-            create: true,
-            format: "frontmatter",
-            extension: "md",
-            slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
-            fields: [
-              { label: "Título", name: "title", widget: "string" },
-              { label: "Data", name: "date", widget: "string" },
-              { label: "Resumo", name: "excerpt", widget: "string", required: false },
-              { label: "Corpo do Texto", name: "body", widget: "markdown" }
-            ]
-          }
-        ]
-      };
-    </script>
-    <!-- Script Principal estável do Decap CMS pinnado em 3.16.0 -->
+    <!-- Primeiro carrega a biblioteca do Decap CMS para expor o objeto global CMS -->
     <script src="https://unpkg.com/decap-cms@3.16.0/dist/decap-cms.js"></script>
+    <script>
+      // Inicialização correta usando o CMS.init após carregar o script do CMS
+      CMS.init({
+        config: {
+          backend: {
+            name: "github",
+            repo: "jrobertodasc-cmd/MEU-BLOG",
+            branch: "main",
+            base_url: "https://reflexoes-lac.vercel.app",
+            auth_endpoint: "api/auth"
+          },
+          media_folder: "public/images/uploads",
+          public_folder: "/images/uploads",
+          site_url: "https://reflexoes-lac.vercel.app",
+          display_url: "https://reflexoes-lac.vercel.app",
+          collections: [
+            {
+              name: "posts",
+              label: "Reflexões",
+              label_singular: "Reflexão",
+              folder: "posts",
+              create: true,
+              format: "frontmatter",
+              extension: "md",
+              slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
+              fields: [
+                { label: "Título", name: "title", widget: "string" },
+                { label: "Data", name: "date", widget: "string" },
+                { label: "Resumo", name: "excerpt", widget: "string", required: false },
+                { label: "Corpo do Texto", name: "body", widget: "markdown" }
+              ]
+            }
+          ]
+        }
+      });
+    </script>
   </body>
 </html>
